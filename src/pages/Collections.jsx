@@ -36,7 +36,7 @@ function Collections() {
                 if (!user) return
                 const token = await user.getIdToken()
                 const response = await axios.get(
-                    'http://localhost:5000/wishlist',
+                    '${import.meta.env.VITE_API_URL}/wishlist',
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ function Collections() {
             if (wishlistIds.includes(productId)) {
 
                 await axios.delete(
-                    `http://localhost:5000/wishlist/remove/${productId}`,
+                    `${import.meta.env.VITE_API_URL}/wishlist/remove/${productId}`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -83,7 +83,7 @@ function Collections() {
             } else {
 
                 await axios.post(
-                    'http://localhost:5000/wishlist/add',
+                    '${import.meta.env.VITE_API_URL}/wishlist/add',
                     { productId },
                     {
                         headers: {

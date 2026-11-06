@@ -36,7 +36,7 @@ function Profile() {
                 const token = await user.getIdToken()
 
                 const response = await axios.get(
-                    'http://localhost:5000/users/profile',
+                    '${import.meta.env.VITE_API_URL}/users/profile',
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -75,7 +75,7 @@ function Profile() {
             const token = await user.getIdToken()
 
             await axios.put(
-                'http://localhost:5000/users/profile',
+                '${import.meta.env.VITE_API_URL}/users/profile',
                 {
                     name: profile.name,
                     phone: profile.phone,

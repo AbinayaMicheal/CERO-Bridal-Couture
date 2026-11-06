@@ -44,7 +44,7 @@ async function handleWishlist() {
         if (isInWishlist) {
 
             await axios.delete(
-                `http://localhost:5000/wishlist/remove/${product.id}`,
+                `${import.meta.env.VITE_API_URL}/wishlist/remove/${product.id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -57,7 +57,7 @@ async function handleWishlist() {
         } else {
 
             await axios.post(
-                'http://localhost:5000/wishlist/add',
+                '${import.meta.env.VITE_API_URL}/wishlist/add',
                 { productId: product.id },
                 {
                     headers: {
@@ -96,7 +96,7 @@ useEffect(() => {
             const token = await user.getIdToken()
 
             const response = await axios.get(
-                'http://localhost:5000/wishlist',
+                '${import.meta.env.VITE_API_URL}/wishlist',
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
