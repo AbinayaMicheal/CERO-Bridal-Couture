@@ -52,7 +52,7 @@ function Login() {
 
     // Save or check user profile in MongoDB
     await axios.post(
-        '${import.meta.env.VITE_API_URL}/users/create',
+        `${import.meta.env.VITE_API_URL}/users/create`,
         {
             name: user.displayName || email.split('@')[0]
         },
