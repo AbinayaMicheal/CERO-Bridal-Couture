@@ -57,7 +57,7 @@ async function handleWishlist() {
         } else {
 
             await axios.post(
-                '${import.meta.env.VITE_API_URL}/wishlist/add',
+                `${import.meta.env.VITE_API_URL}/wishlist/add`,
                 { productId: product.id },
                 {
                     headers: {
@@ -96,7 +96,7 @@ useEffect(() => {
             const token = await user.getIdToken()
 
             const response = await axios.get(
-                '${import.meta.env.VITE_API_URL}/wishlist',
+                `${import.meta.env.VITE_API_URL}/wishlist`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
